@@ -4,7 +4,7 @@ module.exports = {
      * process.env.NODE_ENV==='development' (开发环境)
      * baseUrl: process.env.NODE_ENV==='production'?"https://cdn.didabisai.com/front/":'front/',
      */
-    outputDir: 'dist', // where to put static assets (js/css/img/font/...) // 是否在保存时使用‘eslint-loader’进行检查 // 有效值: true | false | 'error' // 当设置为‘error’时，检查出的错误会触发编译失败
+    outputDir: 'dist',// where to put static assets (js/css/img/font/...) // 是否在保存时使用‘eslint-loader’进行检查 // 有效值: true | false | 'error' // 当设置为‘error’时，检查出的错误会触发编译失败
     publicPath: '/vue-spotify-music',
     configureWebpack: {
         devServer: {
@@ -13,11 +13,9 @@ module.exports = {
             port: 8080,
             hotOnly: false,
             proxy: {
-                '/spotify-api': {
+                '/spotify-music': {
                     target: "http://localhost:9000",
-                    pathRewrite: {
-                        '^/spotify-api': ''
-                    },
+                    pathRewrite: { '^/spotify-api': ''},
                     changeOrigin: true,
                     secure: false
                 }
@@ -28,7 +26,7 @@ module.exports = {
             'vue-router': "VueRouter",
             vuex: "Vuex",
             axios: 'axios'
-        } : {}
+        } : {} 
     },
     css: {
         loaderOptions: {
